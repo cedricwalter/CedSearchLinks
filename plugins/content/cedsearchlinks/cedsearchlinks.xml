@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.4" type="plugin" group="content" method="upgrade">
+    <name>CedSearchLinks | Galaxiis.com</name>
+    <creationDate>2016-07-25</creationDate>
+
+    <version>1.0.0</version>
+
+    <author>Galaxiis</author>
+    <authorEmail>galaxiiscom@gmail.com</authorEmail>
+    <authorUrl>www.galaxiis.com</authorUrl>
+
+    <copyright>Copyright (C) 2013-2016 galaxiis.com All rights reserved.</copyright>
+    <license>http://confluence.galaxiis.com/display/GAL/SOFTWARE+LICENSE+AGREEMENT</license>
+
+    <description>PLG_CONTENT_CEDSEARCHLINKS_DESC</description>
+
+    <files>
+        <filename plugin="cedsearchlinks">cedsearchlinks.php</filename>
+        <filename plugin="cedsearchlinks">parser.php</filename>
+        <filename>index.html</filename>
+        <folder>language</folder>
+    </files>
+
+    <updateservers>
+        <server name="Galaxiis Update Directory" priority="1" type="collection">https://www.galaxiis.com/update.xml</server>
+    </updateservers>
+
+    <config addfieldpath="libraries/galaxiis/fields">
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                        name="toolbar"
+                        type="galaxiisbar"/>
+                <field
+                        name="message"
+                        type="galaxiismessage"
+                        message="note"
+                        label="Please help us: vote, suggest and give us your opinion in the Joomla extensions directory. With this you will help us to increase our interest to modify and update the extension. Thank you very much."/>
+                <field
+                        name="version_msg"
+                        type="galaxiismessage"
+                        message="version"
+                        version="1.0.0"
+                        extension_name="CedSearchLinks"/>
+
+                <field name="search" type="radio" default="com_finder"
+                       label="PLG_CONTENT_CEDSEARCHLINKS_SEARCH_LABEL"
+                       description="PLG_CONTENT_CEDSEARCHLINKS_SEARCH_DESC" class="btn-group">
+                    <option value="com_finder">PLG_CONTENT_CEDSEARCHLINKS_FINDER</option>
+                    <option value="com_search">PLG_CONTENT_CEDSEARCHLINKS_SEARCH</option>
+                </field>
+
+
+                <field name="areas" type="list" default="articles"
+                       label="PLG_CONTENT_CEDSEARCHLINKS_AREAS"
+                       description="PLG_CONTENT_CEDSEARCHLINKS_AREAS_DESC" class="btn-group"
+                       multiple="multiple"
+                       showon="search:com_search,com_tags">
+                    <option value="categories">PLG_CONTENT_CEDSEARCHLINKS_CATEGORIES</option>
+                    <option value="contacts">PLG_CONTENT_CEDSEARCHLINKS_CONTACTS</option>
+                    <option value="content">PLG_CONTENT_CEDSEARCHLINKS_ARTICLES</option>
+                    <option value="newsfeeds">PLG_CONTENT_CEDSEARCHLINKS_NEWSFEEDS</option>
+                    <option value="tags">PLG_CONTENT_CEDSEARCHLINKS_TAGS</option>
+                </field>
+
+                <field name="ordering" type="list"
+                       default="newest"
+                       description="PLG_CONTENT_CEDSEARCHLINKS_DESC"
+                       label="PLG_CONTENT_CEDSEARCHLINKS_LABEL">
+                    <option value="newest">PLG_CONTENT_CEDSEARCHLINKS_NEWEST_FIRST</option>
+                    <option value="popular">PLG_CONTENT_CEDSEARCHLINKS_MOST_POPULAR</option>
+                </field>
+
+                <field name="target" type="list"
+                       default="0"
+                       description="PLG_CONTENT_CEDSEARCHLINKS_FIELD_TARGET_DESC"
+                       label="PLG_CONTENT_CEDSEARCHLINKS_FIELD_TARGET_LABEL">
+                    <option value="0">PLG_CONTENT_CEDSEARCHLINKS_PARENT</option>
+                    <option value="1">PLG_CONTENT_CEDSEARCHLINKS_NEW</option>
+                    <option value="2">PLG_CONTENT_CEDSEARCHLINKS_POPUP</option>
+                    <option value="3">PLG_CONTENT_CEDSEARCHLINKS_MODAL</option>
+                </field>
+            </fieldset>
+
+        </fields>
+    </config>
+</extension>
