@@ -43,6 +43,12 @@ class plgContentCedSearchLinks extends JPlugin
 			return true;
 		}
 
+		// Return if we don't have a valid article id
+		if (!isset($row->id) || !(int) $row->id)
+		{
+			return true;
+		}
+
 		$row->text = $this->replaceText($row->id, $row->text);
 
 		return true;

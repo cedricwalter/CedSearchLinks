@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.4" type="plugin" group="content" method="upgrade">
     <name>CedSearchLinks | Galaxiis.com</name>
-    <creationDate>2016-07-25</creationDate>
+    <creationDate>2016-12-31</creationDate>
 
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 
     <author>Galaxiis</author>
     <authorEmail>galaxiiscom@gmail.com</authorEmail>
@@ -21,16 +21,12 @@
         <folder>language</folder>
     </files>
 
-    <updateservers>
-        <server name="Galaxiis Update Directory" priority="1" type="collection">https://www.galaxiis.com/update.xml</server>
-    </updateservers>
-
     <config addfieldpath="libraries/galaxiis/fields">
         <fields name="params">
             <fieldset name="basic">
-                <field
-                        name="toolbar"
-                        type="galaxiisbar"/>
+                <field shortId="cedsearchlinks"
+                       name="toolbar"
+                       type="galaxiisbar"/>
                 <field
                         name="message"
                         type="galaxiismessage"
@@ -40,7 +36,7 @@
                         name="version_msg"
                         type="galaxiismessage"
                         message="version"
-                        version="1.0.0"
+                        version="1.1.0"
                         extension_name="CedSearchLinks"/>
 
                 <field name="search" type="radio" default="com_finder"
