@@ -6,13 +6,13 @@
 This is the **free version** the premium version can be bought together with support at [www.galaxiis.com](https://www.galaxiis.com)
 
 ## Demo
-[https://www.galaxiis.com/* cedsearchlinks-demo/](https://www.galaxiis.com/* cedsearchlinks-demo/)
+[https://www.galaxiis.com/cedsearchlinks-demo/](https://www.galaxiis.com/* cedsearchlinks-demo/)
 
 ## Documentation
-[https://www.galaxiis.com/* cedsearchlinks-doc/](https://www.galaxiis.com/* cedsearchlinks-doc/)
+[https://www.galaxiis.com/cedsearchlinks-doc/](https://www.galaxiis.com/* cedsearchlinks-doc/)
 
 ## Joomla JED
-[https://www.galaxiis.com/* cedsearchlinks-jed/](https://www.galaxiis.com/* cedsearchlinks-jed/)
+[https://www.galaxiis.com/cedsearchlinks-jed/](https://www.galaxiis.com/* cedsearchlinks-jed/)
 
 ## Download
 ### free version
