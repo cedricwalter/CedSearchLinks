@@ -3,7 +3,7 @@
     <name>CedSearchLinks | Galaxiis.com</name>
     <creationDate>2016-12-31</creationDate>
 
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 
     <author>Galaxiis</author>
     <authorEmail>galaxiiscom@gmail.com</authorEmail>
@@ -36,7 +36,7 @@
                         name="version_msg"
                         type="galaxiismessage"
                         message="version"
-                        version="1.1.0"
+                        version="1.1.1"
                         extension_name="CedSearchLinks"/>
 
                 <field name="search" type="radio" default="com_finder"
