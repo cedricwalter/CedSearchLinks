@@ -28,9 +28,16 @@ class plgContentCedSearchLinks extends JPlugin
 		$this->loadLanguage();
 	}
 
-	public function onContentPrepare($context, &$row, &$params, $page = 0)
+    public function onContentPrepare($context, &$row, &$params, $page = 0)
 	{
-		//Do not run in admin area and non HTML  (rss, json, error)
+//        $canProceed = $context === 'com_content.article';
+//
+//        if (!$canProceed)
+//        {
+//            return;
+//        }
+
+	    //Do not run in admin area and non HTML  (rss, json, error)
 		$app = JFactory::getApplication();
 		if ($app->isAdmin() || JFactory::getDocument()->getType() !== 'html')
 		{
@@ -49,7 +56,7 @@ class plgContentCedSearchLinks extends JPlugin
 			return true;
 		}
 
-		$row->text = $this->replaceText($row->id, $row->text);
+        $this->replaceText($row);
 
 		return true;
 	}
@@ -59,32 +66,29 @@ class plgContentCedSearchLinks extends JPlugin
 	 * @param $text
 	 * @return mixed
 	 */
-	private function replaceText($id, $text)
-	{
-		$models = plgContentCedSearchLinksParser::parse($text);
-		if ($models)
-		{
-			$ordering    = $this->params->get('ordering', 'newest');
-			$search      = $this->params->get('search', 'com_finder');
-			$target      = $this->params->get('target', 'new');
-			$areas       = $this->params->get('areas');
-			$i           = 0;
-			$area_values = "";
-			foreach ($areas as $area)
-			{
-				$area_values .= "&areas[$i]=$area";
-				$i++;
-			}
+	private function replaceText(&$row)
+    {
+        $models = plgContentCedSearchLinksParser::parse($row->text);
+        if ($models) {
 
-			foreach ($models as $model)
-			{
-				$replaced = $this->getReplacement($id, $search, $model, $ordering, $area_values, $target);
-				$text     = str_replace($model->match, $replaced, $text);
-			}
-		}
+            $ordering = $this->params->get('ordering', 'newest');
+            $search = $this->params->get('search', 'com_finder');
+            $target = $this->params->get('target', 'new');
+            $areas = $this->params->get('areas', array());
+            $i = 0;
+            $area_values = "";
+            foreach ($areas as $area) {
+                $area_values .= "&areas[$i]=$area";
+                $i++;
+            }
 
-		return $text;
-	}
+            foreach ($models as $model) {
+                $replaced = $this->getReplacement($row->id, $search, $model, $ordering, $area_values, $target);
+                $row->text = str_replace($model->match, $replaced, $row->text);
+
+            }
+        }
+    }
 
 
 	/**

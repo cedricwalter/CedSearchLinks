@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.4" type="plugin" group="content" method="upgrade">
     <name>CedSearchLinks | Galaxiis.com</name>
-    <creationDate>2016-12-31</creationDate>
+    <creationDate>2017-05-31</creationDate>
 
-    <version>1.1.1</version>
+    <version>3.0.1</version>
 
     <author>Galaxiis</author>
     <authorEmail>galaxiiscom@gmail.com</authorEmail>
@@ -33,10 +33,21 @@
                         message="note"
                         label="Please help us: vote, suggest and give us your opinion in the Joomla extensions directory. With this you will help us to increase our interest to modify and update the extension. Thank you very much."/>
                 <field
+                        name="downloadid"
+                        type="galaxiisdownloadid"
+                        message="download id"
+                />
+                <field
+                        name="downloadid"
+                        type="galaxiisdownloadid"
+                        message="download id"
+                 />
+
+                <field
                         name="version_msg"
                         type="galaxiismessage"
                         message="version"
-                        version="1.1.1"
+                        version="3.0.1"
                         extension_name="CedSearchLinks"/>
 
                 <field name="search" type="radio" default="com_finder"
