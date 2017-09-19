@@ -3,7 +3,7 @@
  * @package     CedSearchLinks
  * @subpackage  com_cedsearchlinks
  *
- * @copyright   Copyright (C) 2013-2016 galaxiis.com All rights reserved.
+ * @copyright   Copyright (C) 2013-2017 galaxiis.com All rights reserved.
  * @license     The author and holder of the copyright of the software is Cédric Walter. The licensor and as such issuer of the license and bearer of the
  *              worldwide exclusive usage rights including the rights to reproduce, distribute and make the software available to the public
  *              in any form is Galaxiis.com
@@ -22,11 +22,13 @@ class plgContentCedSearchLinks extends JPlugin
 	var $parser = null;
 	var $photoFeedHtml;
 
-	public function __construct(& $subject, $config)
-	{
-		parent::__construct($subject, $config);
-		$this->loadLanguage();
-	}
+    /**
+     * Load the language file on instantiation.
+     *
+     * @var    boolean
+     * @since  3.1
+     */
+    protected $autoloadLanguage = true;
 
     public function onContentPrepare($context, &$row, &$params, $page = 0)
 	{
@@ -39,26 +41,26 @@ class plgContentCedSearchLinks extends JPlugin
 
 	    //Do not run in admin area and non HTML  (rss, json, error)
 		$app = JFactory::getApplication();
-		if ($app->isAdmin() || JFactory::getDocument()->getType() !== 'html')
+		if ($app->isClient('administrator') || JFactory::getDocument()->getType() !== 'html')
 		{
-			return true;
+			return;
 		}
 
 		//simple performance check to determine whether bot should process further
 		if (!plgContentCedSearchLinksParser::active($row->text))
 		{
-			return true;
+			return;
 		}
 
 		// Return if we don't have a valid article id
 		if (!isset($row->id) || !(int) $row->id)
 		{
-			return true;
+			return;
 		}
 
         $this->replaceText($row);
 
-		return true;
+		return;
 	}
 
 	/**
